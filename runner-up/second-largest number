@@ -1,0 +1,25 @@
+if __name__ == '__main__':
+    n = int(input())
+    arr = list(map(int, input().split()))
+def fsmax(a,b):
+    if a > b:
+        return a , b
+    else:
+        return b , a
+
+count = 0
+for i in range(len(arr)):
+    if arr[i] == arr[i+1]:
+        count += 1
+        continue
+    else:
+        break
+fmax,smax = fsmax(arr[0],arr[1+count])
+for i in range(2,len(arr)):
+    if arr[i]>fmax:
+        smax = fmax
+        fmax = arr[i]
+    else:
+        if arr[i]>smax and arr[i]<fmax:
+            smax = arr[i]
+print(smax)
